@@ -1,0 +1,27 @@
+ php bin/console doctrine:mapping:import --force AppBundle xml
+
+
+--------------------------------
++ open server: php bin/console server:run
++ generate bundle: bin/console generate:bundle
++ generate entity: bin/console generate:doctrine:entity
+ php bin/console doctrine:schema:validate
++ create database: bin/console doctrine:database:create
++ retrieve database tables: bin/console doctrine:mapping:import --force Zayen_darekBundle xml
++ config.yml: mapping_types:
+    enum: string
++ convert to Annotation + generate entities: php bin/console doctrine:mapping:convert annotation ./src
+					     php bin/console doctrine:generate:entities Zayen_darekBundle
+
++ upbdate base :  bin/console doctrine:schema:update --force
++ generate crud : php bin/console doctrine:generate:crud
++ consulting routes : bin/console debug:router
++ Consultions API routes: bin/console debug:router | grep api_
+
++generate crud (prob solver) :php bin/console doctrine:generate:crud --entity=Zayen_darekBundle:News
+
++ require  components (web services):
+                "jms/serializer-bundle": "^1.1",
+        	"friendsofsymfony/rest-bundle": "^1.7",
+ 
++les chemins de routages : bin/console debug:router | grep api_
